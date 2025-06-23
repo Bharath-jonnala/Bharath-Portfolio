@@ -29,7 +29,7 @@ const Hero = () => {
           <div className="w-72 h-72 md:w-88 md:h-88 mx-auto mb-8 -mt-0 relative">
             <div className="w-full h-full bg-gradient-to-br from-[#64FFDA] to-[#4ECDC4] rounded-full flex items-center justify-center overflow-hidden animate-glow">
               <img 
-                src="/profile.jpg" 
+                src="/Bharath-Portfolio/profile.jpg" 
                 alt=""
                 className="w-full h-full object-cover"
               />
