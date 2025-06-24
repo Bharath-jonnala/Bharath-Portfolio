@@ -2,7 +2,8 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
 
-// Removed: import { componentTagger } from "lovable-tagger"
+// Check if you're running on Vercel
+const isVercel = process.env.VERCEL === "1";
 
 export default defineConfig(({ mode }) => ({
   server: {
@@ -11,9 +12,8 @@ export default defineConfig(({ mode }) => ({
   },
   plugins: [
     react(),
-    // Removed: componentTagger()
   ],
-  base: "/Bharath-Portfolio",
+  base: isVercel ? "/" : "/Bharath-Portfolio", // ✅ Dynamic base
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
