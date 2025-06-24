@@ -1,112 +1,119 @@
+
 import React from 'react';
-import { Code, Cloud, Users, Lightbulb, Database, Globe, Cpu, Zap } from 'lucide-react';
+import { 
+  Code2, 
+  Database, 
+  Globe, 
+  Smartphone, 
+  Server, 
+  GitBranch,
+  Palette,
+  Cloud,
+  Terminal,
+  Layers,
+  Zap,
+  Settings
+} from 'lucide-react';
 
 const Skills = () => {
-  const skills = [
+  const skillCategories = [
     {
-      name: "Python",
-      icon: Code,
-      color: "from-yellow-400 to-yellow-600",
-      level: 85,
-      category: "Programming"
-    },
-    {
-      name: "Java",
-      icon: Cpu,
-      color: "from-orange-400 to-red-500",
-      level: 80,
-      category: "Programming"
-    },
-    {
-      name: "C",
-      icon: Code,
-      color: "from-blue-400 to-blue-600",
-      level: 75,
-      category: "Programming"
-    },
-    {
-      name: "React",
-      icon: Zap,
-      color: "from-cyan-400 to-blue-500",
-      level: 90,
-      category: "Web"
-    },
-    {
-      name: "HTML/CSS",
+      title: "Frontend Development",
       icon: Globe,
-      color: "from-orange-400 to-pink-500",
-      level: 95,
-      category: "Web"
+      skills: [
+        { name: "React", icon: Code2, color: "from-blue-400 to-blue-600" },
+        { name: "JavaScript", icon: Zap, color: "from-yellow-400 to-yellow-600" },
+        { name: "HTML5/CSS3", icon: Palette, color: "from-orange-400 to-red-500" },
+        { name: "Tailwind CSS", icon: Layers, color: "from-cyan-400 to-cyan-600" }
+      ]
     },
     {
-      name: "JavaScript",
-      icon: Code,
-      color: "from-yellow-300 to-yellow-500",
-      level: 85,
-      category: "Web"
+      title: "Backend Development",
+      icon: Server,
+      skills: [
+        { name: "Node.js", icon: Terminal, color: "from-green-400 to-green-600" },
+        { name: "Python", icon: Code2, color: "from-blue-500 to-purple-600" },
+        { name: "Express.js", icon: Server, color: "from-gray-400 to-gray-600" }
+      ]
     },
     {
-      name: "Problem Solving",
-      icon: Lightbulb,
-      color: "from-pink-400 to-rose-500",
-      level: 88,
-      category: "Soft Skills"
+      title: "Database & Cloud",
+      icon: Database,
+      skills: [
+        { name: "MongoDB", icon: Database, color: "from-green-500 to-emerald-600" },
+        { name: "PostgreSQL", icon: Database, color: "from-blue-600 to-indigo-600" },
+        { name: "AWS", icon: Cloud, color: "from-orange-500 to-yellow-500" }
+      ]
+    },
+    {
+      title: "Tools & Others",
+      icon: Settings,
+      skills: [
+        { name: "Git", icon: GitBranch, color: "from-red-400 to-red-600" },
+        { name: "Docker", icon: Layers, color: "from-blue-500 to-blue-700" }
+      ]
     }
   ];
 
   return (
-    <section id="skills" className="py-20">
-      {/* Background Effects */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/4 left-1/4 w-48 h-48 bg-blue-500/10 rounded-full blur-2xl animate-pulse" />
-        <div className="absolute bottom-1/4 right-1/4 w-48 h-48 bg-cyan-500/10 rounded-full blur-2xl animate-pulse delay-1000" />
-      </div>
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-20 animate-fade-in-up">
-          <h2 className="text-5xl md:text-6xl font-bold text-white mb-6">
-            Skills & <span className="bg-gradient-to-r from-[#64FFDA] to-[#4ECDC4] bg-clip-text text-transparent">Technologies</span>
+    <section id="skills" className="py-20 ">
+      {/* Background decoration */}
+      <div className="absolute inset-0 bg-grid-pattern opacity-10"></div>
+      <div className="absolute top-20 left-10 w-72 h-72 bg-purple-500/20 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-20 right-10 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl"></div>
+      
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
+        <div className="text-center mb-16">
+          <h2 className="text-5xl font-bold text-white mb-6">
+            Skills & <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">Expertise</span>
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-[#64FFDA] to-[#4ECDC4] mx-auto mb-8 rounded-full" />
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
-            Powering innovation with modern technologies and frameworks
+          <div className="w-32 h-1 bg-gradient-to-r from-purple-500 to-pink-500 mx-auto mb-8"></div>
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+            Technologies and tools I use to bring innovative ideas to life
           </p>
         </div>
 
-        {/* Skills Grid */}
-        <div className="skills-grid grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 justify-center">
-          {skills.map((skill, index) => {
-            const Icon = skill.icon;
-
-            return (
-              <div
-                key={skill.name}
-                className="skill-card group relative bg-gradient-to-br from-gray-800/40 to-gray-900/60 backdrop-blur-md border border-gray-700/30 rounded-xl p-4 transition-all duration-300 hover:-translate-y-2 hover:shadow-lg hover:border-[#64FFDA]/40"
-                style={{ animationDelay: `${index * 0.1}s`, width: '180px', height: '200px' }}
-              >
-                <div className="skill-card-inner flex flex-col items-center text-center gap-2 h-full justify-center">
-                  <div className="skill-icon-container flex-shrink-0">
-                    <div className={`skill-icon w-16 h-16 rounded-lg bg-gradient-to-br ${skill.color} flex items-center justify-center transition-transform duration-300 group-hover:scale-110`}>
-                      <Icon size={24} className="text-white" />
-                    </div>
-                  </div>
-                  
-                  <div className="skill-content flex flex-col items-center gap-1 flex-grow">
-                    <h3 className="skill-name text-lg font-semibold text-white transition-colors duration-300 group-hover:text-[#64FFDA]">
-                      {skill.name}
-                    </h3>
-                    <span className="skill-category text-sm text-[#64FFDA] opacity-80 uppercase tracking-wide">
-                      {skill.category}
-                    </span>
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {skillCategories.map((category, categoryIndex) => (
+            <div key={category.title} className="group">
+              <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 border border-purple-500/20 hover:border-purple-400/40 transition-all duration-500 hover:shadow-2xl hover:shadow-purple-500/25 hover:-translate-y-2">
+                <div className="flex items-center justify-center mb-6">
+                  <div className="p-4 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-xl group-hover:from-purple-500/30 group-hover:to-pink-500/30 transition-all duration-300">
+                    <category.icon className="w-8 h-8 text-purple-400 group-hover:text-purple-300 transition-colors duration-300" />
                   </div>
                 </div>
                 
-                {/* Hover Effect Overlay */}
-                <div className="skill-hover-overlay absolute inset-0 bg-gradient-to-t from-[#64FFDA]/10 to-transparent rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <h3 className="text-xl font-bold text-white mb-6 text-center group-hover:text-purple-300 transition-colors duration-300">
+                  {category.title}
+                </h3>
+                
+                <div className="space-y-4">
+                  {category.skills.map((skill, skillIndex) => (
+                    <div
+                      key={skill.name}
+                      className="flex items-center space-x-3 p-3 rounded-xl bg-slate-700/30 hover:bg-slate-700/50 transition-all duration-300 hover:scale-105 cursor-pointer group/skill"
+                      style={{
+                        animationDelay: `${categoryIndex * 200 + skillIndex * 100}ms`
+                      }}
+                    >
+                      <div className={`p-2 rounded-lg bg-gradient-to-r ${skill.color} group-hover/skill:scale-110 transition-transform duration-300`}>
+                        <skill.icon className="w-5 h-5 text-white" />
+                      </div>
+                      <span className="text-gray-300 font-medium group-hover/skill:text-white transition-colors duration-300">
+                        {skill.name}
+                      </span>
+                    </div>
+                  ))}
+                </div>
               </div>
-            );
-          })}
+            </div>
+          ))}
         </div>
+
+        {/* Floating elements */}
+        <div className="absolute top-1/2 left-1/4 w-4 h-4 bg-purple-400 rounded-full animate-pulse opacity-60"></div>
+        <div className="absolute top-1/3 right-1/3 w-3 h-3 bg-pink-400 rounded-full animate-pulse opacity-40" style={{animationDelay: '1s'}}></div>
+        <div className="absolute bottom-1/4 left-1/3 w-5 h-5 bg-blue-400 rounded-full animate-pulse opacity-50" style={{animationDelay: '2s'}}></div>
       </div>
     </section>
   );
