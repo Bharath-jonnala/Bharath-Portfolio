@@ -67,10 +67,8 @@ const Hero = () => {
               Get In Touch
             </Button>
             <a 
-            href="/assets/resume.pdf"
+            href="/public/assets/resume.pdf"
             download="Bharath_Chandra_Resume.pdf"
-              
-              size="lg"
               className="border-gray-500 text-gray-300 hover:bg-gray-700 hover:text-white px-8 py-4 flex items-center gap-2"
             >
               <Download size={20} />
