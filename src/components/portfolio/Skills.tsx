@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Code, Cloud, Users, Lightbulb, Database, Globe, Cpu, Zap } from 'lucide-react';
 
@@ -46,7 +45,6 @@ const Skills = () => {
       level: 85,
       category: "Web"
     },
-
     {
       name: "Problem Solving",
       icon: Lightbulb,
@@ -57,100 +55,57 @@ const Skills = () => {
   ];
 
   return (
-    <section id="skills" className="py-32 relative">
+    <section id="skills" className="py-20">
+      {/* Background Effects */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-1/4 left-1/4 w-48 h-48 bg-blue-500/10 rounded-full blur-2xl animate-pulse" />
+        <div className="absolute bottom-1/4 right-1/4 w-48 h-48 bg-cyan-500/10 rounded-full blur-2xl animate-pulse delay-1000" />
+      </div>
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-20 animate-fade-in-up">
           <h2 className="text-5xl md:text-6xl font-bold text-white mb-6">
-            Skills & <span className="text-gradient">Technologies</span>
+            Skills & <span className="bg-gradient-to-r from-[#64FFDA] to-[#4ECDC4] bg-clip-text text-transparent">Technologies</span>
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-[#64FFDA] to-[#4ECDC4] mx-auto mb-8"></div>
+          <div className="w-24 h-1 bg-gradient-to-r from-[#64FFDA] to-[#4ECDC4] mx-auto mb-8 rounded-full" />
           <p className="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
             Powering innovation with modern technologies and frameworks
           </p>
         </div>
 
         {/* Skills Grid */}
-        <div className="skills-grid mb-20">
+        <div className="skills-grid grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 justify-center">
           {skills.map((skill, index) => {
             const Icon = skill.icon;
-            
+
             return (
-              <div 
+              <div
                 key={skill.name}
-                className="skill-card group"
-                style={{ animationDelay: `${index * 0.1}s` }}
+                className="skill-card group relative bg-gradient-to-br from-gray-800/40 to-gray-900/60 backdrop-blur-md border border-gray-700/30 rounded-xl p-4 transition-all duration-300 hover:-translate-y-2 hover:shadow-lg hover:border-[#64FFDA]/40"
+                style={{ animationDelay: `${index * 0.1}s`, width: '180px', height: '200px' }}
               >
-                <div className="skill-card-inner">
-                  <div className="skill-icon-container">
-                    <div className={`skill-icon bg-gradient-to-br ${skill.color}`}>
-                      <Icon size={28} className="text-white" />
+                <div className="skill-card-inner flex flex-col items-center text-center gap-2 h-full justify-center">
+                  <div className="skill-icon-container flex-shrink-0">
+                    <div className={`skill-icon w-16 h-16 rounded-lg bg-gradient-to-br ${skill.color} flex items-center justify-center transition-transform duration-300 group-hover:scale-110`}>
+                      <Icon size={24} className="text-white" />
                     </div>
                   </div>
                   
-                  <div className="skill-content">
-                    <h3 className="skill-name">{skill.name}</h3>
-                    <span className="skill-category">{skill.category}</span>
-                    
-                    {/* Progress Ring */}
-                    <div className="skill-progress">
-                      <svg className="progress-ring" width="60" height="60">
-                        <circle
-                          className="progress-ring-circle-bg"
-                          stroke="rgba(100, 255, 218, 0.1)"
-                          strokeWidth="3"
-                          fill="transparent"
-                          r="26"
-                          cx="30"
-                          cy="30"
-                        />
-                        <circle
-                          className="progress-ring-circle"
-                          stroke="url(#gradient)"
-                          strokeWidth="3"
-                          fill="transparent"
-                          r="26"
-                          cx="30"
-                          cy="30"
-                          strokeDasharray={`${2 * Math.PI * 26}`}
-                          strokeDashoffset={`${2 * Math.PI * 26 * (1 - skill.level / 100)}`}
-                        />
-                        <defs>
-                          <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" stopColor="#64FFDA" />
-                            <stop offset="100%" stopColor="#4ECDC4" />
-                          </linearGradient>
-                        </defs>
-                      </svg>
-                      <span className="progress-text">{skill.level}%</span>
-                    </div>
+                  <div className="skill-content flex flex-col items-center gap-1 flex-grow">
+                    <h3 className="skill-name text-lg font-semibold text-white transition-colors duration-300 group-hover:text-[#64FFDA]">
+                      {skill.name}
+                    </h3>
+                    <span className="skill-category text-sm text-[#64FFDA] opacity-80 uppercase tracking-wide">
+                      {skill.category}
+                    </span>
                   </div>
                 </div>
                 
                 {/* Hover Effect Overlay */}
-                <div className="skill-hover-overlay"></div>
+                <div className="skill-hover-overlay absolute inset-0 bg-gradient-to-t from-[#64FFDA]/10 to-transparent rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </div>
             );
           })}
-        </div>
-
-        {/* Stats Section */}
-        <div className="stats-container">
-          <div className="stat-item">
-            <div className="stat-number">10+</div>
-            <div className="stat-label">Technologies</div>
-          </div>
-          <div className="stat-item">
-            <div className="stat-number">5+</div>
-            <div className="stat-label">Projects</div>
-          </div>
-          <div className="stat-item">
-            <div className="stat-number">3+</div>
-            <div className="stat-label">Certifications</div>
-          </div>
-          <div className="stat-item">
-            <div className="stat-number">2+</div>
-            <div className="stat-label">Years Learning</div>
-          </div>
         </div>
       </div>
     </section>
