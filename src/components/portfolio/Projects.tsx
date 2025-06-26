@@ -10,7 +10,7 @@ const Projects = () => {
   const projects = [
     {
       id: 1,
-      title: "E-Commerce Web Application",
+      title: "Personal Portfolio",
       category: "web",
       description: "Full-stack e-commerce platform built with React and Node.js, featuring user authentication, payment integration, and real-time inventory management.",
       tags: ["React", "Node.js", "MongoDB", "Stripe"],
@@ -61,15 +61,6 @@ const Projects = () => {
       level: "Foundational",
       skills: ["Cloud Computing", "AWS Services", "Architecture"],
       credentialId: "AWS-CP-2024"
-    },
-    {
-      title: "React Developer Certification",
-      issuer: "Meta",
-      date: "2023",
-      icon: Award,
-      level: "Professional",
-      skills: ["React", "JavaScript", "Frontend Development"],
-      credentialId: "META-RD-2023"
     }
   ];
 
@@ -82,14 +73,7 @@ const Projects = () => {
       duration: "6 weeks",
       participants: "50+ participants"
     },
-    {
-      title: "Python Programming Workshop",
-      category: "Workshop",
-      icon: Code,
-      description: "Advanced Python programming workshop focusing on data structures and algorithms.",
-      duration: "3 days",
-      participants: "30+ participants"
-    },
+
     {
       title: "NSS Volunteer",
       category: "Extracurricular",

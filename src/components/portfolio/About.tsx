@@ -18,17 +18,10 @@ const About = () => {
       period: "2022",
       percentage: "96%",
       status: "completed"
-    },
-    {
-      degree: "SSC (Class X)",
-      institution: "St. Mary's EM High School",
-      period: "2020",
-      percentage: "97%",
-      status: "completed"
     }
   ];
 
-  const hobbies = ["Travel", "Cricket", "Technology Exploration"];
+  const hobbies = ["Cricket", "Watching movies"];
 
   return (
     <section id="about" className="py-20 relative">
@@ -59,7 +52,7 @@ const About = () => {
 
               <div className="flex items-center gap-2 text-gray-400 mb-6">
                 <MapPin size={18} className="text-[#64FFDA]" />
-                <span>Vijayawada, Andhra Pradesh, India</span>
+                <span>Mylavaram, Andhra Pradesh, India</span>
               </div>
               
               <div className="glass p-6 rounded-lg">
