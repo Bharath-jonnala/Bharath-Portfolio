@@ -2,8 +2,10 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
 
-export default defineConfig({
-  base: "/Bharath-Portfolio/", // 👈 Required for GitHub Pages
+const isVercel = process.env.VERCEL === "1";
+
+export default defineConfig(() => ({
+  base: isVercel ? "/" : "/Bharath-Portfolio/",
   plugins: [react()],
   resolve: {
     alias: {
@@ -14,4 +16,4 @@ export default defineConfig({
     host: "::",
     port: 8080,
   },
-});
+}));
