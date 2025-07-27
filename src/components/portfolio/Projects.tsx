@@ -4,6 +4,9 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Award, BookOpen, Users, Trophy, Code, ExternalLink, Calendar, Star } from 'lucide-react';
 
+import portfolio from "@/assets/portfolio.png";
+import chatapp from "@/assets/chatapp.png";
+
 const Projects = () => {
   const [activeFilter, setActiveFilter] = useState('all');
 
@@ -12,47 +15,49 @@ const Projects = () => {
       id: 1,
       title: "Personal Portfolio",
       category: "web",
-      description: "Full-stack e-commerce platform built with React and Node.js, featuring user authentication, payment integration, and real-time inventory management.",
-      tags: ["React", "Node.js", "MongoDB", "Stripe"],
-      image: "/placeholder.svg",
-      demoLink: "#",
-      codeLink: "#",
+      description: "Responsive personal portfolio built with React and Tailwind CSS,Includes smooth animations and responsive design.",
+      tags: ["React", "Tailwind CSS", "Vite"],
+      image: portfolio,
+      demoLink: "https://bharathportfolio-18.vercel.app/",
+      codeLink: "https://github.com/Bharath-jonnala/Bharath-Portfolio.git",
       status: "Completed"
     },
     {
       id: 2,
-      title: "Cloud Infrastructure Dashboard",
+      title: "Real-Time Chat App",
       category: "cloud",
-      description: "AWS-based monitoring dashboard for cloud resources with automated scaling and cost optimization features.",
-      tags: ["AWS", "Python", "Docker", "CloudWatch"],
-      image: "/placeholder.svg",
+      description: "Realtime chat application using React and Firebase with user auth and message storage.",
+      tags: ["React", "Firebase", "Firestore", "Authentication"],
+      image: chatapp,
       demoLink: "#",
       codeLink: "#",
       status: "In Progress"
     },
     {
       id: 3,
-      title: "AI Chatbot Assistant",
+      title: "Ride Booking App",
       category: "ai",
-      description: "Intelligent chatbot using natural language processing for customer support automation.",
-      tags: ["Python", "TensorFlow", "NLP", "FastAPI"],
+      description: "Uber-style ride booking app built with React Native and Expo, featuring real-time location and map navigation.",
+      tags: ["React Native", "Expo", "PostgreSQL", "Node.js", "Google Maps"],
       image: "/placeholder.svg",
       demoLink: "#",
       codeLink: "#",
-      status: "Completed"
+      status: "In Progress"
     }
+
   ];
 
   const certifications = [
-    {
-      title: "Cisco Data Science Certification",
-      issuer: "Cisco",
-      date: "2024",
-      icon: Award,
-      level: "Professional",
-      skills: ["Data Analysis", "Machine Learning", "Python"],
-      credentialId: "CDS-2024-001"
-    },
+   {
+  title: "EV - Programming and Problem Solving Using C",
+  issuer: "E-Box (Amphisoft)",
+  date: "Oct 2024 – Feb 2025",
+  icon: Award,
+  level: "Completion",
+  skills: ["Loops and Conditionals", "Functions in C", "Problem Solving"],
+  credentialId: "CDS-2024-001"
+}
+,
     {
       title: "AWS Cloud Practitioner",
       issuer: "Amazon Web Services",
