@@ -59,6 +59,16 @@ const Projects = () => {
 }
 ,
     {
+  title: "MERN Stack Internship",
+  issuer: "Biztron Softech",
+  date: "24 June 2024 - 20 July 2024",
+  icon: Award,
+  level: "Internship",
+  skills: ["MongoDB", "Express.js", "React", "Node.js", "Full Stack Development"],
+  credentialId: "INT-MERN-2024"
+}
+,
+    {
       title: "AWS Cloud Practitioner",
       issuer: "Amazon Web Services",
       date: "2024",
@@ -75,8 +85,8 @@ const Projects = () => {
       category: "Training",
       icon: BookOpen,
       description: "Intensive 6-week program covering modern web technologies and industry best practices.",
-      duration: "6 weeks",
-      participants: "50+ participants"
+      duration: "4 weeks",
+      participants: "200+ participants"
     },
 
     {
@@ -90,10 +100,7 @@ const Projects = () => {
   ];
 
   const filterOptions = [
-    { value: 'all', label: 'All Projects' },
-    { value: 'web', label: 'Web Development' },
-    { value: 'cloud', label: 'Cloud Computing' },
-    { value: 'ai', label: 'AI & ML' }
+    { value: 'all', label: 'All Projects' }
   ];
 
   const filteredProjects = activeFilter === 'all' 

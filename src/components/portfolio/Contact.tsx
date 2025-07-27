@@ -1,15 +1,35 @@
-
-import React from 'react';
+import React, { useRef } from 'react';
+import emailjs from '@emailjs/browser';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Mail, Phone, MapPin, Send, Linkedin, Github } from 'lucide-react';
 
+emailjs.init('HRI3z1cD7m8rF0GxJ'); // 👈 Your public key here
+
 const Contact = () => {
+  const form = useRef<HTMLFormElement>(null);
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted');
+
+    if (!form.current) return;
+
+    emailjs
+      .sendForm('service_28tpoei', 'template_dmlyp12', form.current, 'HRI3z1cD7m8rF0GxJ')
+
+      .then(
+        (result) => {
+          console.log('✅ Message sent:', result.text);
+          alert('Message sent successfully!');
+          form.current.reset(); // Optional
+        },
+        (error) => {
+          console.error('❌ Message failed:', error.text);
+          alert('Failed to send message. Try again.');
+        }
+      );
   };
 
   return (
@@ -24,13 +44,12 @@ const Contact = () => {
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12">
-          {/* Contact Information */}
+          {/* Contact Info */}
           <div className="space-y-8">
             <div>
               <h3 className="text-2xl font-semibold text-gray-900 mb-6">Let's Connect</h3>
               <p className="text-gray-600 mb-8">
-                Feel free to reach out for opportunities, collaborations, or just to say hello. 
-                I'm always excited to connect with fellow developers and learn from new experiences.
+                Feel free to reach out for opportunities, collaborations, or just to say hello.
               </p>
             </div>
 
@@ -65,7 +84,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <p className="font-medium text-gray-900">Location</p>
-                  <p className="text-gray-600">Vijayawada, Andhra Pradesh, India</p>
+                  <p className="text-gray-600">Mylavaram, Andhra Pradesh, India</p>
                 </div>
               </div>
             </div>
@@ -91,35 +110,40 @@ const Contact = () => {
           <Card className="shadow-xl">
             <CardContent className="p-8">
               <h3 className="text-xl font-semibold text-gray-900 mb-6">Send a Message</h3>
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form ref={form} onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
                     <Label htmlFor="firstName">First Name</Label>
-                    <Input id="firstName" placeholder="Your first name" className="mt-1" />
+                    <Input id="firstName" name="firstName" placeholder="Your first name" required className="mt-1" />
                   </div>
                   <div>
                     <Label htmlFor="lastName">Last Name</Label>
-                    <Input id="lastName" placeholder="Your last name" className="mt-1" />
+                    <Input id="lastName" name="lastName" placeholder="Your last name" required className="mt-1" />
                   </div>
                 </div>
-                
+
                 <div>
                   <Label htmlFor="email">Email</Label>
-                  <Input id="email" type="email" placeholder="your.email@example.com" className="mt-1" />
+                  <Input id="email" name="email" type="email" placeholder="your.email@example.com" required className="mt-1" />
                 </div>
-                
+
                 <div>
                   <Label htmlFor="subject">Subject</Label>
-                  <Input id="subject" placeholder="What's this about?" className="mt-1" />
+                  <Input id="subject" name="subject" placeholder="What's this about?" required className="mt-1" />
                 </div>
-                
-                <textarea
-                  id="message"
-                  rows={5}
-                  placeholder="Your message here..."
-                  className="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900" // Added text-gray-900
-                />
-                
+
+                <div>
+                  <Label htmlFor="message">Message</Label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows={5}
+                    placeholder="Your message here..."
+                    required
+                    className="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900"
+                  />
+                </div>
+
                 <Button type="submit" className="w-full bg-blue-600 hover:bg-blue-700 flex items-center justify-center gap-2">
                   <Send size={16} />
                   Send Message

@@ -1,59 +1,73 @@
 
 import React from 'react';
-import { 
-  Code2, 
-  Database, 
-  Globe, 
-  Smartphone, 
-  Server, 
+import {
+  Code2,
+  Database,
+  Globe,
+  Smartphone,
+  Server,
   GitBranch,
   Palette,
   Cloud,
   Terminal,
   Layers,
   Zap,
-  Settings
+  Settings,
+  Flame,
+  Squirrel,
+  HardDrive,
+  PackagePlus,
+  Sparkles,
+  Cpu,
+  Atom // ⚠️ If not available, use a custom SVG or fallback to Code2 again
 } from 'lucide-react';
 
+
 const Skills = () => {
-  const skillCategories = [
-    {
-      title: "Frontend Development",
-      icon: Globe,
-      skills: [
-        { name: "React", icon: Code2, color: "from-blue-400 to-blue-600" },
-        { name: "JavaScript", icon: Zap, color: "from-yellow-400 to-yellow-600" },
-        { name: "HTML5/CSS3", icon: Palette, color: "from-orange-400 to-red-500" },
-        { name: "Tailwind CSS", icon: Layers, color: "from-cyan-400 to-cyan-600" }
-      ]
-    },
-    {
-      title: "Backend Development",
-      icon: Server,
-      skills: [
-        { name: "Node.js", icon: Terminal, color: "from-green-400 to-green-600" },
-        { name: "Python", icon: Code2, color: "from-blue-500 to-purple-600" },
-        { name: "Express.js", icon: Server, color: "from-gray-400 to-gray-600" }
-      ]
-    },
-    {
-      title: "Database & Cloud",
-      icon: Database,
-      skills: [
-        { name: "MongoDB", icon: Database, color: "from-green-500 to-emerald-600" },
-        { name: "PostgreSQL", icon: Database, color: "from-blue-600 to-indigo-600" },
-        { name: "AWS", icon: Cloud, color: "from-orange-500 to-yellow-500" }
-      ]
-    },
-    {
-      title: "Tools & Others",
-      icon: Settings,
-      skills: [
-        { name: "Git", icon: GitBranch, color: "from-red-400 to-red-600" },
-        { name: "Docker", icon: Layers, color: "from-blue-500 to-blue-700" }
-      ]
-    }
-  ];
+ const skillCategories = [
+   {
+  title: "Languages & Tools",
+  icon: Settings,
+  skills: [
+    { name: "Java", icon: Flame, color: "from-orange-500 to-red-500" },     
+    { name: "C", icon: Cpu, color: "from-slate-500 to-slate-700" },          
+    { name: "Git", icon: GitBranch, color: "from-red-400 to-red-600" },
+    { name: "GitHub", icon: Squirrel, color: "from-gray-700 to-black" }
+  ]
+},
+  {
+    title: "Frontend Development",
+    icon: Globe,
+    skills: [
+      { name: "React", icon: Atom, color: "from-blue-400 to-blue-600" },
+      { name: "JavaScript", icon: Zap, color: "from-yellow-400 to-yellow-600" },
+      { name: "HTML5/CSS3", icon: Palette, color: "from-orange-400 to-red-500" },
+      { name: "Tailwind CSS", icon: Layers, color: "from-cyan-400 to-cyan-600" }
+    ]
+  },
+  {
+    title: "Backend Development",
+    icon: Server,
+    skills: [
+      { name: "Node.js", icon: Terminal, color: "from-green-400 to-green-600" },
+      { name: "Firebase", icon: Flame, color: "from-yellow-500 to-orange-600" },
+      { name: "Express.js", icon: Server, color: "from-gray-400 to-gray-600" }
+    ]
+  },
+  {
+    title: "Database & Cloud",
+    icon: Database,
+    skills: [
+      { name: "MongoDB", icon: Database, color: "from-green-500 to-emerald-600" },
+      { name: "PostgreSQL", icon: HardDrive, color: "from-blue-600 to-indigo-600" },
+      { name: "AWS", icon: Cloud, color: "from-orange-500 to-yellow-500" }
+    ]
+  },
+ 
+
+];
+
+
 
   return (
     <section id="skills" className="py-20 ">
